@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Biodata List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #eef2f3;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: white;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Student Biodata List</h1>
+
+  <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search by Name, Father Name, Course, etc.">
+
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Father Name</th>
+        <th>Course Name</th>
+        <th>Joining Date</th>
+        <th>Completion Date</th>
+        <th>Certificate No.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rahul Sharma</td>
+        <td>Ramesh Sharma</td>
+        <td>Computer Basics</td>
+        <td>01-01-2024</td>
+        <td>01-06-2024</td>
+        <td>CB-001</td>
+      </tr>
+      <tr>
+        <td>Priya Mehta</td>
+        <td>Sunil Mehta</td>
+        <td>Tally ERP 9</td>
+        <td>10-02-2024</td>
+        <td>10-08-2024</td>
+        <td>TLY-025</td>
+      </tr>
+      <tr>
+        <td>Arjun Verma</td>
+        <td>Mahesh Verma</td>
+        <td>Web Development</td>
+        <td>15-03-2024</td>
+        <td>15-09-2024</td>
+        <td>WD-012</td>
+      </tr>
+      <tr>
+        <td>Neha Yadav</td>
+        <td>Rajesh Yadav</td>
+        <td>Computer Basics</td>
+        <td>01-04-2024</td>
+        <td>01-10-2024</td>
+        <td>CB-078</td>
+      </tr>
+      <tr>
+        <td>Vikas Singh</td>
+        <td>Kuldeep Singh</td>
+        <td>Graphic Design</td>
+        <td>05-01-2024</td>
+        <td>05-07-2024</td>
+        <td>GD-045</td>
+      </tr>
+      <tr>
+        <td>Sakshi Jain</td>
+        <td>Vinod Jain</td>
+        <td>Tally Prime</td>
+        <td>20-02-2024</td>
+        <td>20-08-2024</td>
+        <td>TP-038</td>
+      </tr>
+      <tr>
+        <td>Aman Khan</td>
+        <td>Nasir Khan</td>
+        <td>Python Programming</td>
+        <td>10-01-2024</td>
+        <td>10-07-2024</td>
+        <td>PY-054</td>
+      </tr>
+      <tr>
+        <td>Kriti Gupta</td>
+        <td>Sanjay Gupta</td>
+        <td>Web Design</td>
+        <td>11-03-2024</td>
+        <td>11-09-2024</td>
+        <td>WD-066</td>
+      </tr>
+      <tr>
+        <td>Mohit Patel</td>
+        <td>Ravi Patel</td>
+        <td>Advanced Excel</td>
+        <td>07-02-2024</td>
+        <td>07-08-2024</td>
+        <td>AE-013</td>
+      </tr>
+      <tr>
+        <td>Anjali Sinha</td>
+        <td>Manoj Sinha</td>
+        <td>Digital Marketing</td>
+        <td>01-03-2024</td>
+        <td>01-09-2024</td>
+        <td>DM-032</td>
+      </tr>
+      <!-- You can copy these rows and change data for 100 students -->
+    </tbody>
+  </table>
+
+  <script>
+    function searchTable() {
+      let input = document.getElementById("searchInput");
+      let filter = input.value.toLowerCase();
+      let table = document.getElementById("studentTable");
+      let tr = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < tr.length; i++) {
+        let td = tr[i].getElementsByTagName("td");
+        let show = false;
+        for (let j = 0; j < td.length; j++) {
+          if (td[j].innerText.toLowerCase().includes(filter)) {
+            show = true;
+            break;
+          }
+        }
+        tr[i].style.display = show ? "" : "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
